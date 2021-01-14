@@ -22,11 +22,11 @@ app.get("/", function(req,res) {
     res.sendFile(path.join(_dirname,"home"))
 });
 
-app.get("/", function(req,res) {
+app.get("/reserve", function(req,res) {
     res.sendFile(path.join(_dirname,"reserve"))
 });
 
-app.get("/", function(req,res) {
+app.get("/tables", function(req,res) {
     res.sendFile(path.join(_dirname,"tables"))
 });
 
