@@ -47,26 +47,13 @@ app.listen(PORT, function() {
 
 //Routes
 app.get("/", function(req,res) {
-    res.sendFile(path.join(__dirname,"public/home.html"))
+    res.sendFile(path.join(_dirname,"home"))
 });
 
-app.get("/", function(req,res) {
-    res.sendFile(path.join(_dirname,"reserve"));
-
+app.get("/reserve", function(req,res) {
+    res.sendFile(path.join(_dirname,"public/reserve.html"))
 });
 
-app.get("/", function(req,res) {
-    res.sendFile(path.join(_dirname,"tables"))
-
-    for (var i = 0; i < reservations.length; i++) {
-        if (chosen === reservations[i].routeName) {
-          return res.json(reservations[i]);
-        }
-      };
-
-      for (var i = 0; i < waitList.length; i++) {
-        if (chosen === waitList[i].routeName) {
-          return res.json(waitList[i]);
-        }
-      }
+app.get("/tables", function(req,res) {
+    res.sendFile(path.join(_dirname,"public/tables.html"))
 });
