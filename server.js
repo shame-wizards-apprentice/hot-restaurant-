@@ -64,7 +64,7 @@ app.get("/api/reserve", function(req,res) {
     return res.json(reservations);
 })
 
-app.get("/api/reserve/", function(req,res){
+app.get("/api/wait", function(req,res){
     return res.json(wait);
 })
 
