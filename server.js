@@ -11,3 +11,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Necessary if you want to seperate your front-end html and js files
 app.use(express.static("public"))
+
+// Listen on port 3000
+app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
