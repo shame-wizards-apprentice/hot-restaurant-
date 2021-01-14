@@ -51,10 +51,23 @@ app.get("/", function(req,res) {
 });
 
 app.get("/", function(req,res) {
-    res.sendFile(path.join(_dirname,"reserve"))
+    res.sendFile(path.join(_dirname,"reserve"));
+
 });
 
 app.get("/", function(req,res) {
     res.sendFile(path.join(_dirname,"tables"))
+
+    for (var i = 0; i < reservations.length; i++) {
+        if (chosen === reservations[i].routeName) {
+          return res.json(reservations[i]);
+        }
+      };
+
+      for (var i = 0; i < waitList.length; i++) {
+        if (chosen === waitList[i].routeName) {
+          return res.json(waitList[i]);
+        }
+      }
 });
 
