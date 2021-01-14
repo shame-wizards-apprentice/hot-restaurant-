@@ -44,3 +44,17 @@ const waitList = [
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
+
+//Routes
+app.get("/", function(req,res) {
+    res.sendFile(path.join(_dirname,"home"))
+});
+
+app.get("/", function(req,res) {
+    res.sendFile(path.join(_dirname,"reserve"))
+});
+
+app.get("/", function(req,res) {
+    res.sendFile(path.join(_dirname,"tables"))
+});
+
