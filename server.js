@@ -1,4 +1,5 @@
 var express = require("express");
+const { networkInterfaces } = require("os");
 var path = require("path");
 
 // Sets up the Express App
@@ -10,7 +11,34 @@ var PORT = process.env.PORT||3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Necessary if you want to seperate your front-end html and js files
-app.use(express.static("public"))
+app.use(express.static("public"));
+
+// Creates new guest objects
+const NewRes = function(name, phone, email, id) {
+    this.name = name;
+    this.phone = phone;
+    this.email = email;
+    this.id = id;
+};
+
+const WaitList = function(name, phone, email, id) {
+    this.name = name;
+    this.phone = phone;
+    this.email = email;
+    this.id = id;
+};
+
+const reservations = [
+    new NewRes("Aang", 555-555-5555, "aang@fake.com", 3),
+
+    new NewRes("Sokka", 222-222-2222, "sokka@fake.com", 5)
+]
+
+const waitList = [
+    new WaitList("Katara", 333-333-3333, "katara@fake.com", 16),
+
+    new WaitList("Zuko", 444-444-4444, "zuko@fake.com", 9)
+]
 
 // Listen on port 3000
 app.listen(PORT, function() {
