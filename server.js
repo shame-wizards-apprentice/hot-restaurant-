@@ -47,13 +47,13 @@ app.listen(PORT, function() {
 
 //Routes
 app.get("/", function(req,res) {
-    res.sendFile(path.join(_dirname,"home"))
+    res.sendFile(path.join(__dirname,"home"))
 });
 
 app.get("/reserve", function(req,res) {
-    res.sendFile(path.join(_dirname,"public/reserve.html"))
+    res.sendFile(path.join(__dirname,"public/reserve.html"))
 });
 
 app.get("/tables", function(req,res) {
-    res.sendFile(path.join(_dirname,"public/tables.html"))
+    res.sendFile(path.join(__dirname,"public/tables.html"))
 });
