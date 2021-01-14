@@ -50,19 +50,11 @@ app.get("/", function(req,res) {
     res.sendFile(path.join(_dirname,"home"))
 });
 
-<<<<<<< HEAD
-app.get("/", function(req,res) {
-    res.sendFile(path.join(_dirname,"reserve"))
-});
-
-app.get("/", function(req,res) {
-=======
 app.get("/reserve", function(req,res) {
-    res.sendFile(path.join(_dirname,"reserve"))
+    res.sendFile(path.join(_dirname,"public/reserve.html"))
 });
 
 app.get("/tables", function(req,res) {
->>>>>>> b52a2317fc382dd6abffc3a910dc51672c6de51a
-    res.sendFile(path.join(_dirname,"tables"))
+    res.sendFile(path.join(_dirname,"public/tables.html"))
 });
 
