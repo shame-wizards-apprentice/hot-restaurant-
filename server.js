@@ -28,17 +28,9 @@ const WaitList = function (name, phone, email, id) {
     this.id = id;
 };
 
-const reservations = [
-    new NewRes("Aang", 555 - 555 - 5555, "aang@fake.com", 3),
+const reservations = [];
 
-    new NewRes("Sokka", 222 - 222 - 2222, "sokka@fake.com", 5)
-]
-
-const wait = [
-    new WaitList("Katara", 333 - 333 - 3333, "katara@fake.com", 16),
-
-    new WaitList("Zuko", 444 - 444 - 4444, "zuko@fake.com", 9)
-]
+const wait = [];
 
 // Listen on port 3000
 app.listen(PORT, function () {
@@ -62,9 +54,29 @@ app.get("/tables", function (req, res) {
 
 app.get("/api/reserve", function(req,res) {
     return res.json(reservations);
-})
+});
 
 app.get("/api/wait", function(req,res){
     return res.json(wait);
+});
+
+app.post("/api/reserve", function(req, res) {
+    const newCustomer = req.body;
+
+    newCustomer.id = reservations.length+wait.length+1;
+
+    console.log(newCustomer);
+
+    if(reservations.length <5) {
+        reservations.push(newCustomer);
+        res.json(newCustomer);
+    }else{
+        wait.push(newCustomer);
+        res.json(newCustomer);
+    };
+
+    console.log(reservations);
+    console.log(wait);
+    
 })
 
