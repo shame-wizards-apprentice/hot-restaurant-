@@ -59,3 +59,12 @@ app.get("/tables", function (req, res) {
     res.sendFile(path.join(__dirname, "public/tables.html"));
 
 });
+
+app.get("/api/reserve", function(req,res) {
+    return res.json(reservations);
+})
+
+app.get("/api/wait", function(req,res){
+    return res.json(wait);
+})
+
