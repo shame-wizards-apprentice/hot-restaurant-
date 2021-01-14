@@ -57,4 +57,3 @@ app.get("/reserve", function(req,res) {
 app.get("/tables", function(req,res) {
     res.sendFile(path.join(_dirname,"public/tables.html"))
 });
-
